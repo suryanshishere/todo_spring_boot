@@ -1,4 +1,4 @@
-package com.cool.springboot.myfirstwebapp.logincontroller;
+package com.cool.springboot.myfirstwebapp.login;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +12,11 @@ import org.springframework.ui.ModelMap;
 public class LoginController {
     // private static final Logger logger =
     // LoggerFactory.getLogger(LoginController.class);
+    private AuthenticationService authenticationService;
+
+    public LoginController(AuthenticationService authenticationService) {
+        this.authenticationService = authenticationService;
+    }
 
     @GetMapping("/login")
     public String login(@RequestParam(required = false) String name,
@@ -30,6 +35,12 @@ public class LoginController {
     @PostMapping("/login")
     public String welcome(@RequestParam String name, @RequestParam String password, ModelMap model) {
         model.put("name", name);
-        return "welcome";
+        model.put("password", password);
+
+        if (authenticationService.authenticate(name, password)) {
+            return "welcome";
+        }
+        model.put("errorMessage", "Invalid credentials");
+        return "login";
     }
 }
