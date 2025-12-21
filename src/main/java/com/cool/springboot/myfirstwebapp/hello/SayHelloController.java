@@ -1,14 +1,14 @@
 package com.cool.springboot.myfirstwebapp.hello;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.io.IOException;
+// import java.nio.file.Files;
+// import java.nio.file.Paths;
+// import java.io.IOException;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@RestController
+@Controller
 public class SayHelloController {
 
     @GetMapping("/hello")
@@ -29,8 +29,8 @@ public class SayHelloController {
     // }
     // }
 
-    @GetMapping("hello-jsp")
+    @GetMapping("/hello-jsp")
     public String sayHelloJsp() {
-        return "hello"; 
+        return "hello";
     }
 }
