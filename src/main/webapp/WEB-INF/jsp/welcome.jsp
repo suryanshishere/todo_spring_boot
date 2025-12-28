@@ -12,5 +12,6 @@
     <h1>Welcome to the Application</h1>
     <p>You have successfully logged in.</p>
     <p>Name: ${name}</p>
+    <div><a href="/list-todos">Manage</a> your todos.</div>
 </body>
 </html>

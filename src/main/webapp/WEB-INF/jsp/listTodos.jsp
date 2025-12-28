@@ -5,6 +5,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   </head>
   <body>
+    <h1>Hi ${name}</h1>
     <div class="container">
       <h1>Your Todos</h1>
       <table class="table">
